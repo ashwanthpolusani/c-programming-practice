@@ -1,0 +1,40 @@
+#include<stdio.h>
+main()
+{
+	int n,i,arm=1,x,m,p,l;
+	FILE *fp,*a;
+	fp=fopen("D:/editor/armstrong.txt","w");
+	while(1)
+	{
+		scanf("%d",&n);
+		if(n==-0)
+		{
+			break;
+		}
+		putw(n,fp);
+	}
+	fclose(fp);
+	fp=fopen("D:/editor/armstrong.txt","r");
+	while((n=getw(fp))!=EOF)
+	{
+		arm=0;
+		m=n,p=n;
+		l=0;
+		while(p>0)
+		{
+			p=p/10;
+			l++;
+		}
+		while(n>0)
+		{
+			x=n%10;
+			arm=arm+pow(x,l);
+			n=n/10;
+		}
+		if(arm==m)
+		{
+			printf("\n armstrong %d",arm);
+		}
+	}
+	fclose(fp);
+}
